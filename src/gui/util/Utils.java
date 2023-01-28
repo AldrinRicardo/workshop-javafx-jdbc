@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 public class Utils {
+	
 	public static Stage currentStage(ActionEvent event) {
 		return (Stage) ((Node) event.getSource()).getScene().getWindow();
 	}
@@ -24,6 +25,14 @@ public class Utils {
 			return Integer.parseInt(str);
 		}
 		catch (NumberFormatException e) {
+			return null;
+		}
+	}
+	
+	public static Double tryParseToDouble(String str) {
+		try {
+			return Double.parseDouble(str);
+		} catch (NumberFormatException e) {
 			return null;
 		}
 	}
